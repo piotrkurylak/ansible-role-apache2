@@ -1,38 +1,46 @@
-Role Name
-=========
+## Role Name: Apache2
 
-A brief description of the role goes here.
+Ansible role for installing Apache2 on Debian systems.
 
-Requirements
-------------
+## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None.
 
-Role Variables
---------------
+## Role Variables
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Default port configuration file
+````yaml
+apache_port_config_file: /etc/apache2/ports.conf
+````
 
-Dependencies
-------------
+Virtual host configuration file
+````yaml
+apache_virtualhost_config_file: /etc/apache2/sites-enabled/000-default.conf
+````
+
+Switch to any port depending on your needs. Default port used by Apache2 is 80.
+````yaml
+apache_http_port: 80
+````
+
+
+## Dependencies
 
 A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
-Example Playbook
-----------------
+## Example Playbook
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+````yaml
+    - hosts: all
+      become: yes
       roles:
-         - { role: username.rolename, x: 42 }
+         - apache2
+````
 
-License
--------
+## License
 
-BSD
+MIT
 
-Author Information
-------------------
+## Author Information
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Role created by Piotr Kurylak.
