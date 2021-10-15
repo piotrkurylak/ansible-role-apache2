@@ -1,0 +1,15 @@
+---
+
+- name: Set up port for Apache2.
+  lineinfile:
+    path: "{{ apache_port_config_file }}"
+    regexp: '^Listen '
+    line: Listen {{ apache_http_port }}
+
+- name: Set up port for Virtual Hosts
+  lineinfile:
+    path: "{{ apache_virtualhost_config_file }}"
+    regexp: '^<VirtualHost \*:'
+    line: <VirtualHost *:{{ apache_http_port }}>
+    state: present
+  notify: restart apache
