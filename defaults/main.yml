@@ -1,2 +1,6 @@
 ---
-# defaults file for ansible-role-apache2
+
+apache_port_config_file: /etc/apache2/ports.conf
+apache_virtualhost_config_file: /etc/apache2/sites-enabled/000-default.conf
+
+apache_http_port: 80
