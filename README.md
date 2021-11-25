@@ -29,7 +29,7 @@ apache_http_port: 80
     - hosts: all
       become: yes
       roles:
-         - apache2
+         - ansible-role-apache2
 ````
 
 ## License
